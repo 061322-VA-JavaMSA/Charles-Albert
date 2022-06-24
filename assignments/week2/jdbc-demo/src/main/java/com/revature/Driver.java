@@ -1,5 +1,6 @@
 package com.revature;
 
+import java.io.IOException;
 import java.util.List;
 import java.util.Scanner;
 
@@ -17,7 +18,7 @@ public class Driver {
 	static UserService us;
 	static TaskService ts;
 	
-	public static void main(String[] args) {
+	public static void main(String[] args) throws IOException {
 		scan = new Scanner(System.in);
 		as = new AuthService();
 		us = new UserService();
@@ -27,9 +28,10 @@ public class Driver {
 		String password = null;
 		
 		System.out.println("Please enter username:");
-		username = scan.nextLine();
+		 username = scan.nextLine();
+		System.out.println();
 		System.out.println("Please enter password:");
-		password = scan.nextLine();
+		 password = scan.nextLine();
 		
 		try {
 			System.out.println(as.login(username, password));

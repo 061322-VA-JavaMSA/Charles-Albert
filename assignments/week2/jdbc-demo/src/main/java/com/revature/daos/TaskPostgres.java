@@ -1,6 +1,6 @@
 package com.revature.daos;
 
-import java.io.IOException;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -14,6 +14,7 @@ import com.revature.util.ConnectionUtil;
 
 public class TaskPostgres  implements TaskDAO{
 
+	
 	@Override
 	public Task createTask(Task t) {
 		// TODO Auto-generated method stub
@@ -37,7 +38,7 @@ public class TaskPostgres  implements TaskDAO{
 		String sql = "select t.id, t.description, t.due_date, t.status, t.user_assigned_id , u.username from tasks t join users u on t.user_assigned_id = u.id where user_assigned_id = ?;";
 		List<Task> tasks = new ArrayList<>();
 		
-		try(Connection c = ConnectionUtil.getConnectionFromFile()){
+		try(Connection c = ConnectionUtil.getHardcodedConnection()){
 			PreparedStatement ps = c.prepareStatement(sql);
 			ps.setInt(1, id);
 			
@@ -61,9 +62,6 @@ public class TaskPostgres  implements TaskDAO{
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		} catch (IOException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
 		}
 		return tasks;
 	}

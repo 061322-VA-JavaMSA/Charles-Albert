@@ -9,6 +9,7 @@ public class AuthService {
 
 	private UserDAO ud = new UserPostgres();
 	
+	
 	public User login(String username, String password) throws LoginException {
 		// if username/password passed are null, throws an exception
 		if(username == null || password == null) {
@@ -21,5 +22,7 @@ public class AuthService {
 			throw new LoginException();
 		}
 		return u;
+		
+		
 	}
 }
