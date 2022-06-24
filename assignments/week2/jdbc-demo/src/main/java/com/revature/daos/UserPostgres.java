@@ -78,7 +78,7 @@ public class UserPostgres implements UserDAO{
 		String sql = "select * from users where username  = ?;";
 		User u = null;
 		
-		try (Connection c = ConnectionUtil.getHardcodedConnection()){
+		try (Connection c = ConnectionUtil.getHardcodedConnection();){
 			PreparedStatement ps = c.prepareStatement(sql);
 			
 			ps.setString(1, username); 
