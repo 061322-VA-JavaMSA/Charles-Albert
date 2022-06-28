@@ -1,28 +1,30 @@
 package com.revature;
 
-
-import java.util.List;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
 import java.util.Scanner;
 
 import com.revature.exceptions.LoginException;
-import com.revature.models.Task;
 import com.revature.models.User;
 import com.revature.services.AuthService;
-import com.revature.services.TaskService;
+//import com.revature.services.TaskService;
 import com.revature.services.UserService;
 
 public class Driver {
-	
+		
 	static Scanner scan;
 	static AuthService as;
 	static UserService us;
-	static TaskService ts;
+	//static TaskService ts;
 	
 	public static void main(String[] args) {
+		
+		
 		scan = new Scanner(System.in);
 		as = new AuthService();
 		us = new UserService();
-		ts = new TaskService();
+		//ts = new TaskService();
 		
 		String username = null;
 		String password = null;
@@ -45,27 +47,8 @@ public class Driver {
 			User userTBC = new User();
 			userTBC.setUsername(uname);
 			userTBC.setPassword(pass);
-			
-			//e.printStackTrace();
+			e.printStackTrace();
 		}
 
-		
-		//List<User> users = us.getUsers();
-		//for(User u : users) {
-		//	System.out.println(u);
-		//}	
-		
-		
-		
-		
-		System.out.println("Retrieve tasks for which user id?");
-		int userId = Integer.parseInt(scan.nextLine());
-		List<Task> tasksForUser = ts.getTasksByUserId(userId);
-		for(Task t : tasksForUser) {
-			System.out.println(t);
-		}
-		
-		scan.close();
 	}
-
 }
