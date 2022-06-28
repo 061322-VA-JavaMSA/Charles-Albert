@@ -5,16 +5,13 @@ import java.util.Scanner;
 
 import com.revature.daos.InventoryDAO;
 import com.revature.daos.InventoryDaoImpl;
-import com.revature.daos.UserDAO;
-import com.revature.daos.UserDaoImpl;
 import com.revature.models.Inventory;
-import com.revature.models.User;
 
 public class InventoryService {
-	private UserDaoImpl iD = new UserDaoImpl();
-	
-	public  List<Iventory> getIventory(){
-		return iD.retrievIventory();
+	//private UserDaoImpl iD = new UserDaoImpl();
+	private InventoryDAO id = new InventoryDaoImpl();
+	public  List<Inventory> getIventory(String item){
+		return id.retrieveIventory( item);
 	}
 	
 	
@@ -23,19 +20,19 @@ public static Inventory create(){
 		Scanner scanner = new Scanner(System.in);
 		
 		System.out.println("Enter Item name: ");
-		String itemname = scanner.nextLine();
+		String item = scanner.nextLine();
 		
 		System.out.println("Enter Item price: ");
 		String itemprice = scanner.nextLine();
 		
-		 Inventory  itemname = new Inventory (itemname, itemprice);
+		 Inventory  item1 = new Inventory ();
 		
-		System.out.println("This is the user you created:"+ itemname.toString());
+		System.out.println("This is the user you created:"+ item1.toString());
 		
 		InventoryDAO DAO = new InventoryDaoImpl();
-		itemname = InventoryDAO.create(itemname);
+		item1 = InventoryDAO.create(item1);
 		
-		return itemname;
+		return item1;
 		
 	}
 }

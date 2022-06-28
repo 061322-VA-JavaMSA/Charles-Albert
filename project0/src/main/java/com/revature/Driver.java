@@ -1,5 +1,4 @@
 package com.revature;
-import java.util.List;
 import java.util.Scanner;
 
 import com.revature.daos.UserDaoImpl;

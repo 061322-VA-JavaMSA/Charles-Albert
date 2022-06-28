@@ -8,7 +8,7 @@ import com.revature.models.User;
 
 public class UserService {
 	private UserDAO ud = new UserDaoImpl();
-		//private  static Logger log = LogManager.getLogManager()
+		
 	
 	public List<User> getUsers(){
 		return ud.retrievUsers();

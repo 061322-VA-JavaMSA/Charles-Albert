@@ -1,8 +1,9 @@
 package com.revature.models;
 
+import java.util.List;
 import java.util.Objects;
 
-public class Inventory {
+public class Inventory  {
 	
 	private int id;
 	private String itemname;
@@ -14,15 +15,17 @@ public class Inventory {
 		
 			super();
 		}
-	public Inventory(int id, String itemname, float itemprice, String status) {
+	public Inventory( String itemname, float itemprice) {
 		
-		this.id = id;
+		
 		this.itemname = itemname;
 		this.itemprice = itemprice;
-		this.status = status;
+		
 	}
 	public int getId() {
 		return id;
+	
+		
 	}
 	public void setId(int id) {
 		this.id = id;

@@ -2,7 +2,9 @@ package com.revature.models;
 
 import java.util.Objects;
 
-public class account {
+import com.revature.daos.AccountDaoImpl;
+
+public class Account {
 
 	private int id;
 	private float accountBal;
@@ -21,13 +23,13 @@ public class account {
 	}
 
 
-	public account() {
+	public Account() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 	
 	
-	public account(int id) {
+	public Account(int id) {
 		
 		this.id = id;
 	}
@@ -69,7 +71,7 @@ public class account {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		account other = (account) obj;
+		Account other = (Account) obj;
 		return Float.floatToIntBits(accountBal) == Float.floatToIntBits(other.accountBal)
 				&& Float.floatToIntBits(accountDep) == Float.floatToIntBits(other.accountDep)
 				&& Float.floatToIntBits(accountwithdraw) == Float.floatToIntBits(other.accountwithdraw)
@@ -79,6 +81,18 @@ public class account {
 	public String toString() {
 		return "account [id=" + id + ", accountBal=" + accountBal + ", accountDep=" + accountDep + ", accountwithdraw="
 				+ accountwithdraw + ", userAssigned=" + userAssigned + "]";
+	}
+
+
+	public static AccountDaoImpl createAccount(Account a) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+	public static Account createAccount(AccountDaoImpl a) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 	
 	

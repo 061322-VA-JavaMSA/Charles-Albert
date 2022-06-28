@@ -1,6 +1,5 @@
 package com.revature.daos;
 
-import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -51,7 +50,7 @@ public class UserDaoImpl implements UserDAO{
 		
 	
 	public List<User> retrieveUsers(){
-		String sql = "select * from users;";
+		String sql = "select * from users_info;";
 		List<User> users = new ArrayList<>();
 		
 		try(Connection c = ConnectionUtil.getHardcodedConnection()){
@@ -66,7 +65,7 @@ public class UserDaoImpl implements UserDAO{
 				u.setUsername(rs.getString("username"));
 				u.setPassword(rs.getString("password"));
 				
-				users.add(u);
+				//users.add(u);
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -114,13 +113,6 @@ public class UserDaoImpl implements UserDAO{
 	}
 			
 	
-
-
-	@Override
-	public List<User> retrievUsers() {
-		// TODO Auto-generated method stub
-		return null;
-	}
 
 
 	@Override
@@ -180,6 +172,13 @@ public class UserDaoImpl implements UserDAO{
 	public void delete(int id) {
 		// TODO Auto-generated method stub
 		
+	}
+
+
+	@Override
+	public List<User> retrievUsers() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 
