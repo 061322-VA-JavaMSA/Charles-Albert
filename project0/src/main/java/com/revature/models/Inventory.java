@@ -12,6 +12,7 @@ public class Inventory {
 		
 	super();
 		
+
 	}
 	public Inventory(int id, String itemname, float itemprice, String status) {
 		
