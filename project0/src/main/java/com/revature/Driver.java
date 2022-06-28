@@ -1,22 +1,34 @@
 package com.revature;
-
+import java.util.List;
 import java.util.Scanner;
 
+import com.revature.daos.UserDaoImpl;
+import com.revature.exceptions.LoginException;
+import com.revature.services.AuthService;
 import com.revature.services.UserService;
+import com.revature.models.User;
 
 public class Driver {
-		
-	
+		public static Scanner scan;
+		public static AuthService as;
+		public static UserService us;
+		public static UserDaoImpl useDaoImpl;
  public static void main( String[]args ) {
 	 
-	 
+	 	scan = new Scanner(System.in);
+		as = new AuthService();
+		us = new UserService();
+		useDaoImpl = new UserDaoImpl();
 	 boolean flag = true;
 	 while (flag == true) {
+		 
+		String username = null;
+		String password = null;
 		 
 		 System.out.println("Choose an option: ");
 		 System.out.println("1. Register a User ");
 		 System.out.println("2. quit ");
-		 
+		 System.out.println("3. login ");
 		 int choice;
 		 
 		 Scanner scanner = new Scanner(System.in);
@@ -31,9 +43,33 @@ public class Driver {
 		 		System.out.println("quiting now");
 		 		flag = false;
 		 		break;
+		 	case 3: 
+		 		System.out.println("Please enter username:");
+				username = scan.nextLine();
+				System.out.println("Please enter password:");
+				password = scan.nextLine();
 		 		
-		 }
-			 
+				try {
+					
+					System.out.println(as.login(username, password));
+					
+				} catch (LoginException | javax.security.auth.login.LoginException e) {
+					System.out.println("Invalid credentials.");
+					System.out.println("Create username:");
+					String uname = scan.nextLine();
+					System.out.println("Create, password:");
+					String pass = scan.nextLine();
+					User userTBC = new User();
+					userTBC.setUsername(uname);
+					userTBC.setPassword(pass);
+					
+					//e.printStackTrace();
+				}
+				}  
+		 		
+		 		
+		 }		
+			 	
 		 
 	 }
 	 
@@ -41,7 +77,7 @@ public class Driver {
 	 
 	 
 	 
- }
+ 
 	
 /*	static Scanner scan;
 	static AuthService as;

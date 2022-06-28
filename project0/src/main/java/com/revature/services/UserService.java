@@ -1,13 +1,20 @@
 package com.revature.services;
 
+import java.util.List;
 import java.util.Scanner;
-
 import com.revature.daos.UserDAO;
 import com.revature.daos.UserDaoImpl;
 import com.revature.models.User;
 
 public class UserService {
-
+	private UserDAO ud = new UserDaoImpl();
+		//private  static Logger log = LogManager.getLogManager()
+	
+	public List<User> getUsers(){
+		return ud.retrievUsers();
+		
+	}
+	
 	public static User create(){
 		
 		Scanner scanner = new Scanner(System.in);
@@ -28,4 +35,7 @@ public class UserService {
 		return user;
 		
 	}
+	
+	
+	
 }

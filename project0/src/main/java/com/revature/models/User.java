@@ -1,5 +1,6 @@
 package com.revature.models;
 
+import java.util.List;
 import java.util.Objects;
 
 public class User {
@@ -72,6 +73,11 @@ public class User {
 	@Override
 	public String toString() {
 		return "User [id=" + id + ", username=" + username + ", password=" + password + ", status=" + status + "]";
+	}
+
+	public String getByUsername() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 	
 	
