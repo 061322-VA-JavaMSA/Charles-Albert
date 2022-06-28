@@ -11,7 +11,6 @@ import java.util.List;
 
 import com.revature.Util.ConnectionUtil;
 import com.revature.models.User;
-import com.revature.services.Iventory;
 
 public class UserDaoImpl implements UserDAO{
 
@@ -184,9 +183,7 @@ public class UserDaoImpl implements UserDAO{
 	}
 
 
-	public List<Iventory> retrievIventory() {
-		// TODO Auto-generated method stub
-		return null;
-	}
+	
+	
 
 }

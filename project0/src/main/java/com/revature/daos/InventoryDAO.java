@@ -1,13 +1,17 @@
 package com.revature.daos;
 
+import java.util.List;
+
 import com.revature.models.Inventory;
 
 public interface InventoryDAO<Itemname> {
 
-	public Inventory create(Itemname itemname);
-	public Inventory getById(int id);
-	public Inventory upDate(Itemname itemname, int id);
-	
-	public void delete (int id);
+	 Inventory create(Itemname itemname);
+	 Inventory getById(int id);
+	 Inventory upDate(Itemname itemname, int id);
+	 List<Inventory> retrieveIventory(String itemname);
+	 boolean updateInventory(Itemname itemname);
+	 boolean deleteInventoryById(int id);
+	 
 	
 }

@@ -8,12 +8,12 @@ public class Inventory {
 	private String itemname;
 	private float itemprice;
 	private String status;
+	
+	
 	public Inventory() {
 		
-	super();
-		
-
-	}
+			super();
+		}
 	public Inventory(int id, String itemname, float itemprice, String status) {
 		
 		this.id = id;

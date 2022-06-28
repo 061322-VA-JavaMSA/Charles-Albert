@@ -8,9 +8,19 @@ public class account {
 	private float accountBal;
 	private float accountDep;
 	private float accountwithdraw;
+	private User userAssigned;
 	
 	
-	
+	public User getUserAssigned() {
+		return userAssigned;
+	}
+
+
+	public void setUserAssigned(User userAssigned) {
+		this.userAssigned = userAssigned;
+	}
+
+
 	public account() {
 		super();
 		// TODO Auto-generated constructor stub
@@ -49,7 +59,7 @@ public class account {
 	}
 	@Override
 	public int hashCode() {
-		return Objects.hash(accountBal, accountDep, accountwithdraw, id);
+		return Objects.hash(accountBal, accountDep, accountwithdraw, id, userAssigned);
 	}
 	@Override
 	public boolean equals(Object obj) {
@@ -63,12 +73,12 @@ public class account {
 		return Float.floatToIntBits(accountBal) == Float.floatToIntBits(other.accountBal)
 				&& Float.floatToIntBits(accountDep) == Float.floatToIntBits(other.accountDep)
 				&& Float.floatToIntBits(accountwithdraw) == Float.floatToIntBits(other.accountwithdraw)
-				&& id == other.id;
+				&& id == other.id && Objects.equals(userAssigned, other.userAssigned);
 	}
 	@Override
 	public String toString() {
 		return "account [id=" + id + ", accountBal=" + accountBal + ", accountDep=" + accountDep + ", accountwithdraw="
-				+ accountwithdraw + "]";
+				+ accountwithdraw + ", userAssigned=" + userAssigned + "]";
 	}
 	
 	
