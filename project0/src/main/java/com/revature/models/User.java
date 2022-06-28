@@ -15,6 +15,19 @@ public class User {
 		// TODO Auto-generated constructor stub
 	}
 	
+	public User(int id, String username, String password, String status) {
+		this.id = id;
+		this.username = username;
+		this.password = password;
+		this.status = status;
+		
+	}
+	
+	public User(String username, String password) {
+		this.username = username;
+		this.password = username;
+	}
+	
 	public int getId() {
 		return id;
 	}

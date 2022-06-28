@@ -5,13 +5,14 @@ import java.util.List;
 import com.revature.models.User;
 
 public interface UserDAO {
-	User createUser(User u);
-	User retrieveUserById(int id);
 	
-	List<User> retrieveUsers();
-	User retrieveUserByUsername(String username);
+	public User create(User user);
+	public User getById(int id);
+	public User getByUsername(String username);
+	public User update(User user, int id);
+	
+	public void delete(int id); 
 	
 	
 	
-	boolean updateUser(User u);
 }

@@ -1,31 +1,61 @@
 package com.revature;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
 import java.util.Scanner;
 
-import com.revature.exceptions.LoginException;
-import com.revature.models.User;
-import com.revature.services.AuthService;
-//import com.revature.services.TaskService;
 import com.revature.services.UserService;
 
 public class Driver {
 		
-	static Scanner scan;
+	
+ public static void main( String[]args ) {
+	 
+	 
+	 boolean flag = true;
+	 while (flag == true) {
+		 
+		 System.out.println("Choose an option: ");
+		 System.out.println("1. Register a User ");
+		 System.out.println("2. quit ");
+		 
+		 int choice;
+		 
+		 Scanner scanner = new Scanner(System.in);
+		 choice = scanner.nextInt();
+		 switch (choice) {
+		 
+		 	case 1:
+				 UserService.create();
+				 break;
+			 
+		 	case 2:
+		 		System.out.println("quiting now");
+		 		flag = false;
+		 		break;
+		 		
+		 }
+			 
+		 
+	 }
+	 
+	 
+	 
+	 
+	 
+ }
+	
+/*	static Scanner scan;
 	static AuthService as;
 	static UserService us;
-	//static TaskService ts;
-	
+	static InventoryService is;
+	static UserDaoImpl userDaoImpl;
 	public static void main(String[] args) {
 		
 		
 		scan = new Scanner(System.in);
 		as = new AuthService();
 		us = new UserService();
-		//ts = new TaskService();
-		
+		is = new InventoryService();
+		userDaoImpl = new UserDaoImpl();
 		String username = null;
 		String password = null;
 		
@@ -47,8 +77,24 @@ public class Driver {
 			User userTBC = new User();
 			userTBC.setUsername(uname);
 			userTBC.setPassword(pass);
+			userDaoImpl.create(userTBC);
 			e.printStackTrace();
 		}
-
+		
+		
+			List<User> users = us.getUsers();
+				for(User u : users) {
+					System.out.println(u);
+				}	
+		
+		//System.out.println("Retrieve inventory list");
+		//List<Inventory> inventory = is.getIventory();
+		//for(Inventory i : inventory ) {
+		//	System.out.println(i);
+		scan.close();
 	}
+		
+		
+	
+*/
 }

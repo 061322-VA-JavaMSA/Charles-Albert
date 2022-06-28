@@ -1,26 +1,31 @@
 package com.revature.services;
 
-import java.util.List;
+import java.util.Scanner;
 
 import com.revature.daos.UserDAO;
-import com.revature.daos.UserPostgres;
+import com.revature.daos.UserDaoImpl;
 import com.revature.models.User;
 
 public class UserService {
 
-private UserDAO ud = new UserPostgres();
-	
-	public List<User> getUsers(){
+	public static User create(){
 		
-		   return ud.retrieveUsers();
-			
-		} 
-			
-	
-	public User createUser(User u) {
+		Scanner scanner = new Scanner(System.in);
 		
-		User user = ud.createUser(u);
+		System.out.println("Enter username: ");
+		String username = scanner.nextLine();
 		
-		return u;
+		System.out.println("Enter password: ");
+		String password = scanner.nextLine();
+		
+		User user = new User(username, password);
+		
+		System.out.println("This is the user you created:"+ user.toString());
+		
+		UserDAO userDAO = new UserDaoImpl();
+		user = userDAO.create(user);
+		
+		return user;
+		
 	}
 }
