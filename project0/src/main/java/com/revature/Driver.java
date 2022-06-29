@@ -1,10 +1,13 @@
 package com.revature;
+import java.util.List;
 import java.util.Scanner;
 
 import com.revature.daos.UserDaoImpl;
 import com.revature.exceptions.LoginException;
 import com.revature.services.AuthService;
+import com.revature.services.InventoryService;
 import com.revature.services.UserService;
+import com.revature.models.Inventory;
 import com.revature.models.User;
 
 public class Driver {
@@ -17,7 +20,7 @@ public class Driver {
 	 	scan = new Scanner(System.in);
 		as = new AuthService();
 		us = new UserService();
-		useDaoImpl = new UserDaoImpl();
+		useDaoImpl = new UserDaoImpl(); 
 	 boolean flag = true;
 	 while (flag == true) {
 		 
@@ -28,6 +31,7 @@ public class Driver {
 		 System.out.println("1. Register a User ");
 		 System.out.println("2. quit ");
 		 System.out.println("3. login ");
+		 System.out.println("4. create inventory ");
 		 int choice;
 		 
 		 Scanner scanner = new Scanner(System.in);
@@ -66,8 +70,17 @@ public class Driver {
 					
 					//e.printStackTrace();
 					}
+				break;
 			
-				
+		 	case 4: 
+		 			InventoryService.create();
+		 	   
+		 		break;
+		 		
+		 	case 5:
+		 		 
+		 		
+		 		break;
 		 }  
 		 		
 		 		
@@ -75,6 +88,10 @@ public class Driver {
 			 	
 		 
 	 }
+private static void getInventory() {
+	// TODO Auto-generated method stub
+	
+}
 	 
 	 
 	 

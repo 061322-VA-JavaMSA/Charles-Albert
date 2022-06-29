@@ -6,15 +6,16 @@ import com.revature.models.Inventory;
 
 public interface InventoryDAO {
 
-	 static Inventory create( Inventory item) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-	 Inventory getById(int id);
-	 Inventory upDate( Inventory item, int id);
+	 public Inventory create(Inventory itemmame);
+		
 	
-	 List<Inventory> retrieveIventory(String itemname);
-	 boolean updateInventory(Inventory  itemname);
+	 public Inventory getById(int id);
+	 public Inventory getByItemname(String itemname);
+	 public Inventory upDate( Inventory item, int id );
+	
+	 public List<Inventory> retrieveInventory();
+	 public Inventory retrieveInventoryByItemname(String itemname);
+	 public Inventory retrieveInventoryById(int id);
 	 boolean deleteInventoryById(int id);
 	 
 	

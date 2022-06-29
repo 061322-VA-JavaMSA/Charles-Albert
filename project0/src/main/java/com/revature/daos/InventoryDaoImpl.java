@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 import com.revature.Util.ConnectionUtil;
@@ -28,7 +29,7 @@ public class InventoryDaoImpl implements InventoryDAO {
 			
 				if (count == 1) {
 				
-					System.out.println("User added successfully");
+					System.out.println("Ivnetory added successfully");
 					rs.next();
 					int generatedId = rs.getInt(1);
 				
@@ -47,7 +48,7 @@ public class InventoryDaoImpl implements InventoryDAO {
 	} 
 	
 	public Inventory retrieveInventoryByItemname(String itemname) {
-		String sql = "select * from users where username  = ?;";
+		String sql = "select * inventory from  where itemname  = ?;";
 		Inventory i = null;
 		
 		try (Connection c = ConnectionUtil.getHardcodedConnection();){
@@ -62,6 +63,7 @@ public class InventoryDaoImpl implements InventoryDAO {
 				i.setId(rs.getInt("id"));
 				i.setItemname(rs.getString("itemname"));
 				i.setItemprice(rs.getFloat("itemprice"));
+				i.setStatus(rs.getString("status"));
 			}
 			
 		} catch (SQLException e) {
@@ -84,22 +86,27 @@ public class InventoryDaoImpl implements InventoryDAO {
 		return null;
 	}
 
-	@Override
-	public List<Inventory> retrieveIventory(String itemname) {
+	
+	public List<Inventory> retrieveInventory() {
 		String sql = "select * from inventory where intemname = ?;";
-	    Inventory item = null;
-		
+	    
+	    List<Inventory> itemname = new ArrayList<>();
 		
 		try(Connection c = ConnectionUtil.getHardcodedConnection();){
 			PreparedStatement ps = c.prepareStatement(sql);
-			ps.setString(1, itemname);
-			
 			ResultSet rs = ps.executeQuery();
-			item = new Inventory();
-			item.setId(rs.getInt("id"));
-			item.setItemname(rs.getString("Itemname"));
-			item.setItemprice(rs.getInt("itemprice"));
-		}catch (SQLException e) {
+			 while(rs.next()) {
+				
+				Inventory i = new Inventory();
+				
+				i.setId(rs.getInt("id"));
+				i.setItemname(rs.getString("itemname"));
+				i.setItemprice(rs.getInt("itemprice"));
+				i.setStatus(rs.getString("status"));
+				
+			 }
+		}
+			 catch (SQLException e) {
 				e.printStackTrace();
 			}return null;
 	}
@@ -132,11 +139,26 @@ public class InventoryDaoImpl implements InventoryDAO {
 	
 	
 
-	@Override
 	public boolean updateInventory(Inventory itemname) {
 		// TODO Auto-generated method stub
 		return false;
 	}
+
+	
+	
+
+	@Override
+	public Inventory retrieveInventoryById(int id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Inventory getByItemname(String itemname) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 	
 }
 

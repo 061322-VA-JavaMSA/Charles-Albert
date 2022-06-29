@@ -50,7 +50,10 @@ public class UserDaoImpl implements UserDAO{
 		
 	
 	public List<User> retrieveUsers(){
-		String sql = "select * from users_info;";
+		String sql = "select a.account_id , a.accountbal , ui.username, ui.password,ui.status \r\n"
+				+ "from accounts a \r\n"
+				+ "join users_info ui \r\n"
+				+ "on a.user_assigned_id =ui.id;;";
 		List<User> users = new ArrayList<>();
 		
 		try(Connection c = ConnectionUtil.getHardcodedConnection()){
@@ -64,8 +67,10 @@ public class UserDaoImpl implements UserDAO{
 				u.setId(rs.getInt("id"));
 				u.setUsername(rs.getString("username"));
 				u.setPassword(rs.getString("password"));
-				
-				//users.add(u);
+				u.setStatus(rs.getString("customer"));
+				u.setAccount_id(rs.getInt("account_id"));
+				u.setAccountbal(rs.getFloat("accountbal"));
+				//users.add(u);"
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -132,6 +137,9 @@ public class UserDaoImpl implements UserDAO{
 				u.setId(rs.getInt("id"));
 				u.setUsername(rs.getString("username"));
 				u.setPassword(rs.getString("password"));
+				u.setStatus(rs.getString("status"));
+				//u.setAccount_id(rs.getInt("account_id"));
+				//u.setAccountbal(rs.getFloat("accountbal"));
 			} 
 			
 		} catch (SQLException e) {
@@ -144,7 +152,10 @@ public class UserDaoImpl implements UserDAO{
 	
 	@Override
 	public User retrieveUserById(int id) {
-		String sql = "select * from users where id = ?;";
+		String sql = "select a.account_id , a.accountbal , ui.username, ui.password,ui.status \r\n"
+				+ "from accounts a \r\n"
+				+ "join users_info ui \r\n"
+				+ "on a.user_assigned_id =ui.id;;";
 		User user = null;
 		
 		try(Connection c = ConnectionUtil.getHardcodedConnection()){

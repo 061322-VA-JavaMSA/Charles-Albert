@@ -9,7 +9,8 @@ public class User {
 	private String username;
 	private String password;
 	private String status;
-	
+	private int account_id; 
+	private float accountbal;
 	
 	
 	public User() {
@@ -17,12 +18,13 @@ public class User {
 		// TODO Auto-generated constructor stub
 	}
 	
-	public User(int id, String username, String password, String status) {
+	public User(int id, String username, String password, String status, int account_id, float accouunbal) {
 		this.id = id;
 		this.username = username;
 		this.password = password;
 		this.status = status;
-		
+		this.account_id = account_id;
+		this.accountbal = accountbal;
 	}
 	
 	public User(String username, String password) {
@@ -56,9 +58,27 @@ public class User {
 		this.status = status;
 	}
 	
+	
+	
+	public int getAccount_id() {
+		return account_id;
+	}
+
+	public void setAccount_id(int account_id) {
+		this.account_id = account_id;
+	}
+
+	public float getAccountbal() {
+		return accountbal;
+	}
+
+	public void setAccountbal(float accountbal) {
+		this.accountbal = accountbal;
+	}
+
 	@Override
 	public int hashCode() {
-		return Objects.hash(id, password, status, username);
+		return Objects.hash(account_id, accountbal, id, password, status, username);
 	}
 	@Override
 	public boolean equals(Object obj) {
@@ -69,12 +89,15 @@ public class User {
 		if (getClass() != obj.getClass())
 			return false;
 		User other = (User) obj;
-		return id == other.id && Objects.equals(password, other.password) && Objects.equals(status, other.status)
+		return account_id == other.account_id
+				&& Float.floatToIntBits(accountbal) == Float.floatToIntBits(other.accountbal) && id == other.id
+				&& Objects.equals(password, other.password) && Objects.equals(status, other.status)
 				&& Objects.equals(username, other.username);
 	}
 	@Override
 	public String toString() {
-		return "User [id=" + id + ", username=" + username + ", password=" + password + ", status=" + status + "]";
+		return "User [id=" + id + ", username=" + username +  ", status=" + status
+				+ ", account_id=" + account_id + ", accountbal=" + accountbal + "]";
 	}
 
 	public String getByUsername() {

@@ -1,6 +1,5 @@
 package com.revature.models;
 
-import java.util.List;
 import java.util.Objects;
 
 public class Inventory  {
@@ -70,7 +69,7 @@ public class Inventory  {
 		return "Inventory [id=" + id + ", itemname=" + itemname + ", itemprice=" + itemprice + ", status=" + status
 				+ "]";
 	}
-	
+	 
 	
 
 }
