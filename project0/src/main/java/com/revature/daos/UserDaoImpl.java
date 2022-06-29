@@ -115,9 +115,9 @@ public class UserDaoImpl implements UserDAO{
 	
 
 
-	@Override
+	
 	public User retrieveUserByUsername(String username) {
-		String sql = "select * from users where username  = ?;";
+		String sql = "select * from users_info where username  = ?;";
 		User u = null;
 		
 		try (Connection c = ConnectionUtil.getHardcodedConnection();){
@@ -159,6 +159,7 @@ public class UserDaoImpl implements UserDAO{
 				user.setId(rs.getInt("id"));
 				user.setUsername(rs.getString("username"));
 				user.setPassword(rs.getString("password"));
+				user.setStatus(rs.getString("status"));
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block

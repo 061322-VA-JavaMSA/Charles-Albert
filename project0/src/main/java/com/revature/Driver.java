@@ -43,15 +43,17 @@ public class Driver {
 		 		flag = false;
 		 		break;
 		 	case 3: 
+		 		 
 		 		System.out.println("Please enter username:");
 				username = scan.nextLine();
+				
 				System.out.println("Please enter password:");
 				password = scan.nextLine();
-//		 		
+		 		
 				try {
 					
 					System.out.println(as.login(username, password));
-					
+					flag = true; 
 				} catch (LoginException | javax.security.auth.login.LoginException e) {
 					System.out.println("Invalid credentials.");
 					System.out.println("Create username:");
@@ -63,8 +65,10 @@ public class Driver {
 					userTBC.setPassword(pass);
 					
 					//e.printStackTrace();
-				}
-				}  
+					}
+			
+				
+		 }  
 		 		
 		 		
 		 }		

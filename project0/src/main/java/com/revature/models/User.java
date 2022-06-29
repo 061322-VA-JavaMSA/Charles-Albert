@@ -11,6 +11,7 @@ public class User {
 	private String status;
 	
 	
+	
 	public User() {
 		super();
 		// TODO Auto-generated constructor stub
@@ -26,7 +27,8 @@ public class User {
 	
 	public User(String username, String password) {
 		this.username = username;
-		this.password = username;
+		this.password = password;
+		
 	}
 	
 	public int getId() {
