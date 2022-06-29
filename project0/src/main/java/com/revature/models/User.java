@@ -4,10 +4,10 @@ import java.util.Objects;
 
 public abstract class User {
 
-	private int userId;
-	private String userName;
-	private String userPassword;
-	private String name;
+	protected int userId;
+	protected String userName;
+	protected String userPassword;
+	protected String name;
 	
 	
 	User(){}

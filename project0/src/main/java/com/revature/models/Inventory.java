@@ -4,9 +4,9 @@ import java.util.Objects;
 
 public class Inventory  {
 	
-	private int id;
-	private String itemname;
-	private float itemprice;
+	private int itemId;
+	private String itemName;
+	private float itemPrice;
 	private String status;
 	
 	
@@ -17,29 +17,29 @@ public class Inventory  {
 	public Inventory( String itemname, float itemprice) {
 		
 		
-		this.itemname = itemname;
-		this.itemprice = itemprice;
+		this.itemName = itemname;
+		this.itemPrice = itemprice;
 		
 	}
 	public int getId() {
-		return id;
+		return itemId;
 	
-		
+		 
 	}
 	public void setId(int id) {
-		this.id = id;
+		this.itemId = id;
 	}
 	public String getItemname() {
-		return itemname;
+		return itemName;
 	}
 	public void setItemname(String itemname) {
-		this.itemname = itemname;
+		this.itemName = itemname;
 	}
 	public float getItemprice() {
-		return itemprice;
+		return itemPrice;
 	}
 	public void setItemprice(float itemprice) {
-		this.itemprice = itemprice;
+		this.itemPrice = itemprice;
 	}
 	public String getStatus() {
 		return status;
@@ -49,7 +49,7 @@ public class Inventory  {
 	}
 	@Override
 	public int hashCode() {
-		return Objects.hash(id, itemname, itemprice, status);
+		return Objects.hash(itemId, itemName, itemPrice, status);
 	}
 	@Override
 	public boolean equals(Object obj) {
@@ -60,13 +60,13 @@ public class Inventory  {
 		if (getClass() != obj.getClass())
 			return false;
 		Inventory other = (Inventory) obj;
-		return id == other.id && Objects.equals(itemname, other.itemname)
-				&& Float.floatToIntBits(itemprice) == Float.floatToIntBits(other.itemprice)
+		return itemId == other.itemId && Objects.equals(itemName, other.itemName)
+				&& Float.floatToIntBits(itemPrice) == Float.floatToIntBits(other.itemPrice)
 				&& Objects.equals(status, other.status);
 	}
 	@Override
 	public String toString() {
-		return "Inventory [id=" + id + ", itemname=" + itemname + ", itemprice=" + itemprice + ", status=" + status
+		return "Inventory [id=" + itemId + ", itemname=" + itemName + ", itemprice=" + itemPrice + ", status=" + status
 				+ "]";
 	}
 	 
