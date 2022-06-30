@@ -532,11 +532,11 @@ public class UserDaoImpl implements UserDAO{
 			
 			while(rs.next()) {
 				item = new Inventory();
-				item.setId(rs.getInt("item_id"));
-				item.setItemname("item_name");
-			    item.setItemname("item_model");
-			    item.setId(true);
-			    item.setId(rs.getInt("buyers_id"));
+				item.setItemId(rs.getInt("item_id"));;
+				item.setItemName(rs.getString("item_name"));
+			    item.setItemModel(rs.getString("item_model"));
+			    item.setItemPrice(rs.getFloat("item_price"));
+			    item.setBuyersId(rs.getInt("buyers_id"));
 				
 				items.add(item);
 			}

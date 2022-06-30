@@ -7,54 +7,85 @@ public class Inventory  {
 	private int itemId;
 	private String itemName;
 	private String itemModel;
+	private float itemPrice;
+	
+	private int buyersId;
+	boolean isOwned;
+	
+	
+
+
+	public int getBuyersId() {
+		return buyersId;
+	}
+
+
+	public void setBuyersId(int buyersId) {
+		this.buyersId = buyersId;
+	}
+
+
+	public boolean isOwned() {
+		return isOwned;
+	}
+
+
+	public void setOwned(boolean isOwned) {
+		this.isOwned = isOwned;
+	}
+
+
+	public Inventory() {
+		super();
+	}
+
+
+	public int getItemId() {
+		return itemId;
+	}
+
+
+	public void setItemId(int itemId) {
+		this.itemId = itemId;
+	}
+
+
+	public String getItemName() {
+		return itemName;
+	}
+
+
+	public void setItemName(String itemName) {
+		this.itemName = itemName;
+	}
+
+
 	public String getItemModel() {
 		return itemModel;
 	}
+
+
 	public void setItemModel(String itemModel) {
 		this.itemModel = itemModel;
 	}
-	private float itemPrice;
-	
-	private int buyerId;
-	private boolean isOwned;
-	
-	
-	public Inventory() {
-		 
-			super();
-		}
-	public Inventory( String itemname, float itemprice) {
-		
-		
-		this.itemName = itemname;
-		this.itemPrice = itemprice;
-		
-	}
-	public int getId() {
-		return itemId;
-	
-		 
-	}
-	public void setId(boolean b) {
-		this.itemId = b;
-	}
-	public String getItemname() {
-		return itemName;
-	}
-	public void setItemname(String itemname) {
-		this.itemName = itemname;
-	}
-	public float getItemprice() {
+
+
+	public float getItemPrice() {
 		return itemPrice;
 	}
-	public void setItemprice(float itemprice) {
-		this.itemPrice = itemprice;
+
+
+	public void setItemPrice(float itemPrice) {
+		this.itemPrice = itemPrice;
 	}
-	
+
+
 	@Override
 	public int hashCode() {
-		return Objects.hash(buyerId, isOwned, itemId, itemModel, itemName, itemPrice);
+		return Objects.hash(buyersId, isOwned, itemId, itemModel, itemName, itemPrice);
 	}
+
+
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -64,26 +95,21 @@ public class Inventory  {
 		if (getClass() != obj.getClass())
 			return false;
 		Inventory other = (Inventory) obj;
-		return buyerId == other.buyerId && isOwned == other.isOwned && itemId == other.itemId
+		return buyersId == other.buyersId && isOwned == other.isOwned && itemId == other.itemId
 				&& Objects.equals(itemModel, other.itemModel) && Objects.equals(itemName, other.itemName)
 				&& Float.floatToIntBits(itemPrice) == Float.floatToIntBits(other.itemPrice);
 	}
+	
+	
 	@Override
 	public String toString() {
 		return "Inventory [itemId=" + itemId + ", itemName=" + itemName + ", itemModel=" + itemModel + ", itemPrice="
-				+ itemPrice + ", buyerId=" + buyerId + ", isOwned=" + isOwned + "]";
+				+ itemPrice + ", buyersId=" + buyersId + ", isOwned=" + isOwned + "]";
 	}
-	public void setId(int int1) {
+
+
+	public void setStatus(String string) {
 		// TODO Auto-generated method stub
 		
 	}
-	public int getItemId() {
-		return itemId;
-	}
-	public void setItemId(int itemId) {
-		this.itemId = itemId;
-	}
-	 
-	
-
 }
