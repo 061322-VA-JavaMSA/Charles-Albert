@@ -11,7 +11,7 @@ public class Employee extends User{
 	private void readPropertiesFile(String string) throws IOException {
 		Properties prop = new Properties();
 		ClassLoader loader = Thread.currentThread().getContextClassLoader();
-		prop.load(loader.getResourceAsStream("ePermissions.properties"));
+		prop.load(loader.getResourceAsStream("connection.properties"));
 		
 		String employeeAccess = prop.getProperty("employeeAccess");
 		setemployeeAccess1(employeeAccess);

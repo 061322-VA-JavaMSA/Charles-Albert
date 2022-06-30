@@ -18,8 +18,11 @@ public class InventoryService {
 	
 		
 	public Inventory createItem(Inventory i) {
-		Inventory item = id.createItem(i);
+		Inventory item = id.create(i);
+		//id.createItem(i);
+		System.out.println();
 		return item;
+		
 	
 	}
 	

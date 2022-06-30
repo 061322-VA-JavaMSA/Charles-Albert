@@ -20,7 +20,7 @@ public class InventoryDaoImpl implements InventoryDAO {
 	public Inventory create( Inventory itemname) {
 		System.out.println("this method was called");
 		String sql = "insert into inventory (item_name, item_model,item_price) values (?,?,?);";
-		try(Connection c = ConnectionUtil.getHardcodedConnection()){
+		try(Connection c = ConnectionUtil.getConnectionFromFile()){
 			PreparedStatement ps = c.prepareStatement(sql);
 			ps.setString(1, itemname.getItemName());
 			ps.setString(2, itemname.getItemModel());
@@ -32,10 +32,10 @@ public class InventoryDaoImpl implements InventoryDAO {
 				
 					itemname.setItemId(rs.getInt("item_id"));
 				}
-			}catch (SQLException e) {
+			}catch (SQLException | IOException e) {
 			
 					e.printStackTrace();
-					
+					System.out.println("this method was call in impl");
 				}
 		return itemname;
 	
@@ -45,7 +45,7 @@ public class InventoryDaoImpl implements InventoryDAO {
 		String sql = "select * inventory from  where item_name  = ?;";
 		Inventory i = null;
 		
-		try (Connection c = ConnectionUtil.getHardcodedConnection();){
+		try (Connection c = ConnectionUtil.getConnectionFromFile();){
 			PreparedStatement ps = c.prepareStatement(sql);
 			
 			ps.setString(1, itemname); 
@@ -60,7 +60,7 @@ public class InventoryDaoImpl implements InventoryDAO {
 				i.setStatus(rs.getString("status"));
 			}
 			
-		} catch (SQLException e) {
+		} catch (SQLException | IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
@@ -101,9 +101,10 @@ public class InventoryDaoImpl implements InventoryDAO {
 	
 	public ArrayList<Inventory> retrieveInventory() {
 		
-		Inventory  i = new Inventory();
+		Inventory  i = null;
+		
 		ArrayList<Inventory> itemname = new ArrayList<Inventory>();
-		String sql = "select * from inventory where item_name = ?;";
+		String sql = "select *from inventory;";
 	    
 	    
 		
@@ -111,7 +112,7 @@ public class InventoryDaoImpl implements InventoryDAO {
 			PreparedStatement ps = c.prepareStatement(sql);
 			ResultSet rs = ps.executeQuery();
 			 while(rs.next()) {
-				
+				i = new Inventory( );
 				i.setItemId(rs.getInt("item_id"));
 				i.setItemName(rs.getString("item_name"));
 				i.setItemModel(rs.getString("item_model"));

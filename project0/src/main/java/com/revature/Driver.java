@@ -18,7 +18,7 @@ static Scanner sc;
 	static CustomerService cs;
 	static InventoryService is;
 	static Employee e;
-	static Customer c;
+	static Customer c ;
 	
 	static void menuScreen(String input) {
 		switch(input) {
@@ -63,7 +63,7 @@ static Scanner sc;
 			break;
 		case "2":
 			System.out.println("Login");
-			System.out.println("if you want to  log in as a customer or an employee enter for Customer, enter2 for Employee ");
+			System.out.println("if you want to  log in as a customer or an employee enter 2 for, enter 1  for Customer ");
 			String choice = sc.nextLine();
 			if(choice.equals("1")) {
 				isCustomer = true;

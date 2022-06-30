@@ -193,7 +193,7 @@ public class UserDaoImpl implements UserDAO{
 
 	@Override
 	public Customer retrieveCustomerByUsername(String username) {
-		String sql = "select * from customers_info where customer_name = ?;";
+		String sql = "select * from customer_info where username = ?;";
 		Customer user = null;
 		
 		try(Connection c = ConnectionUtil.getConnectionFromFile()){
@@ -206,7 +206,7 @@ public class UserDaoImpl implements UserDAO{
 			if(rs.next()) {
 				user = new Customer();
 				user.setUserId(rs.getInt("id"));
-				user.setUserName(rs.getString("customer_name"));
+				user.setUserName(rs.getString("username"));
 				user.setUserPassword(rs.getString("password"));
 				user.setCustomeAccountNumber(rs.getString("acccount_number"));
 				user.setName(rs.getString("customer_name"));
@@ -221,7 +221,7 @@ public class UserDaoImpl implements UserDAO{
 
 	@Override
 	public Employee retrieveEmployeeByUsername(String username) {
-		String sql = "select * from employees_info where employee_name = ?;";
+		String sql = "select * from employee_info where username = ?;";
 		Employee user = null;
 		
 		try(Connection c = ConnectionUtil.getConnectionFromFile()){
@@ -234,7 +234,7 @@ public class UserDaoImpl implements UserDAO{
 			if(rs.next()) {
 				user = new Employee();
 				user.setUserId(rs.getInt("id"));
-				user.setUserName(rs.getString("employee_name"));
+				user.setUserName(rs.getString("username"));
 				user.setUserPassword(rs.getString("password"));
 				user.setName(rs.getString("employee_name"));
 				
@@ -242,6 +242,7 @@ public class UserDaoImpl implements UserDAO{
 		} catch (SQLException | IOException e) {
 			//log.error("Connection error. Exception thrown: " + 
 			e.fillInStackTrace();
+			System.out.println("method in userdao impl");
 		}
 		return user;
 	}
