@@ -38,6 +38,11 @@ public class Customer extends User{
 	public String toString() {
 		return "Customer [customeAccountNumber=" + customeAccountNumber + "]";
 	}
+
+	public void setUserID(int int1) {
+		// TODO Auto-generated method stub
+		
+	}
 	
 	
 

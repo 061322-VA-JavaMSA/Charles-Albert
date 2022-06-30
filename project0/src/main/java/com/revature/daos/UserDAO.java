@@ -13,8 +13,8 @@ public interface UserDAO {
 		// C.R.U.D. 
 	
 	//create
-	void CreateCustomer(Customer c);
-	void CreateEmployee (Employee e);
+	void createCustomer(Customer c);
+	void createEmployee (Employee e);
 	
 	//read - retrieve
 	Customer retrieveCustomerByID(int id);
@@ -39,7 +39,7 @@ public interface UserDAO {
 	ArrayList<Inventory> ownedItems(int userID);
 
 	 // view any payments made
-	void paymentsMade(int usedId);
+	void paymentsLeft(int usedId);
 	
 	
 }  
