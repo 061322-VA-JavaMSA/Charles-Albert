@@ -6,20 +6,20 @@ import com.revature.daos.UserDaoImpl;
 import com.revature.exceptions.LoginException;
 import com.revature.services.AuthService;
 import com.revature.services.InventoryService;
-import com.revature.services.UserService;
+import com.revature.services.CustomerService;
 import com.revature.models.Inventory;
 import com.revature.models.User;
 
 public class Driver {
 		public static Scanner scan;
 		public static AuthService as;
-		public static UserService us;
+		public static CustomerService us;
 		public static UserDaoImpl useDaoImpl;
  public static void main( String[]args ) {
 	 
 	 	scan = new Scanner(System.in);
 		as = new AuthService();
-		us = new UserService();
+		us = new CustomerService();
 		useDaoImpl = new UserDaoImpl(); 
 	 boolean flag = true;
 	 while (flag == true) {
@@ -39,7 +39,7 @@ public class Driver {
 		 switch (choice) {
 		 
 		 	case 1:
-				 UserService.create();
+				 CustomerService.create();
 				 break;
 			 
 		 	case 2:

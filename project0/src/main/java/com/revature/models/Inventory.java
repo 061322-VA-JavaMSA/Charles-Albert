@@ -6,13 +6,21 @@ public class Inventory  {
 	
 	private int itemId;
 	private String itemName;
+	private String itemModel;
+	public String getItemModel() {
+		return itemModel;
+	}
+	public void setItemModel(String itemModel) {
+		this.itemModel = itemModel;
+	}
 	private float itemPrice;
-	private String status;
-	private int id;
+	
+	private int buyerId;
+	private boolean isOwned;
 	
 	
 	public Inventory() {
-		
+		 
 			super();
 		}
 	public Inventory( String itemname, float itemprice) {
@@ -23,12 +31,12 @@ public class Inventory  {
 		
 	}
 	public int getId() {
-		return id;
+		return itemId;
 	
 		 
 	}
 	public void setId(boolean b) {
-		this.id = b;
+		this.itemId = b;
 	}
 	public String getItemname() {
 		return itemName;
@@ -42,15 +50,10 @@ public class Inventory  {
 	public void setItemprice(float itemprice) {
 		this.itemPrice = itemprice;
 	}
-	public String getStatus() {
-		return status;
-	}
-	public void setStatus(String status) {
-		this.status = status;
-	}
+	
 	@Override
 	public int hashCode() {
-		return Objects.hash(id, itemName, itemPrice, status);
+		return Objects.hash(buyerId, isOwned, itemId, itemModel, itemName, itemPrice);
 	}
 	@Override
 	public boolean equals(Object obj) {
@@ -61,18 +64,24 @@ public class Inventory  {
 		if (getClass() != obj.getClass())
 			return false;
 		Inventory other = (Inventory) obj;
-		return id == other.id && Objects.equals(itemName, other.itemName)
-				&& Float.floatToIntBits(itemPrice) == Float.floatToIntBits(other.itemPrice)
-				&& Objects.equals(status, other.status);
+		return buyerId == other.buyerId && isOwned == other.isOwned && itemId == other.itemId
+				&& Objects.equals(itemModel, other.itemModel) && Objects.equals(itemName, other.itemName)
+				&& Float.floatToIntBits(itemPrice) == Float.floatToIntBits(other.itemPrice);
 	}
 	@Override
 	public String toString() {
-		return "Inventory [id=" + id + ", itemname=" + itemName + ", itemprice=" + itemPrice + ", status=" + status
-				+ "]";
+		return "Inventory [itemId=" + itemId + ", itemName=" + itemName + ", itemModel=" + itemModel + ", itemPrice="
+				+ itemPrice + ", buyerId=" + buyerId + ", isOwned=" + isOwned + "]";
 	}
 	public void setId(int int1) {
 		// TODO Auto-generated method stub
 		
+	}
+	public int getItemId() {
+		return itemId;
+	}
+	public void setItemId(int itemId) {
+		this.itemId = itemId;
 	}
 	 
 	
