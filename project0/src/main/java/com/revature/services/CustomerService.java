@@ -90,7 +90,7 @@ public class CustomerService {
 		System.out.println("Your owned items: ");
 		for(int i = 0; i< ownerInv.size(); i++) {
 			//log.info("Item: " + ownerInv.get(i).toString());
-			System.out.println("\tItem ID: "+ ownerInv.get(i).getId());
+			System.out.println("\tItem ID: "+ ownerInv.get(i).getItemId());
 			System.out.println("\tItem Name: " + ownerInv.get(i).getItemId());
 			System.out.println("\tItem Description: " + ownerInv.get(i).getItemModel());
 		}
