@@ -36,7 +36,7 @@ public class InventoryService {
 	
 	public void retrieveInventory(){
 		ArrayList<Inventory> inventory = id.retrieveInventory();
-		//System.out.println(inventory.size());
+		
 		for(int i = 0; i<inventory.size(); i++) {
 			System.out.println("\tItem ID: " + inventory.get(i).getItemId());
 			System.out.println("\tItem Name: " + inventory.get(i).getItemName());

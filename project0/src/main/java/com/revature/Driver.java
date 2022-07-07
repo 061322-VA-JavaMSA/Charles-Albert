@@ -63,7 +63,7 @@ static Scanner sc;
 			break;
 		case "2":
 			System.out.println("Login");
-			System.out.println("if you want to  log in as a customer or an employee enter 2 for, enter 1  for Customer ");
+			System.out.println("if you want to log in as a Customer enter 1 for, enter 2  for Employee ");
 			String choice = sc.nextLine();
 			if(choice.equals("1")) {
 				isCustomer = true;
@@ -189,10 +189,6 @@ static Scanner sc;
 		}
 	}
 	
-	private static void retrieveCustomers() {
-		cs.retrieveCustomers();
-		
-	}
 
 	static void showInventory() {
 		System.out.println("Inventory\nPlease note the Item ID of any items you would like.");
@@ -282,8 +278,8 @@ static Scanner sc;
 	
 	
 	public static void main(String[] args) {
-		cs = new CustomerService();
-		is = new InventoryService();
+	//	cs = new CustomerService();
+		//is = new InventoryService();
 
 		try {
 			ConnectionUtil.getConnectionFromFile();
@@ -293,7 +289,7 @@ static Scanner sc;
 		
 		sc = new Scanner(System.in);
 		
-		System.out.println("Welcome to the Revature Carlot!");
+		System.out.println("Welcome to the Revature Car lot!");
 		System.out.println("Please choose an option: \n 1: Register a new account\n 2: Login \n 3: Exit the program");
 		
 		String choice = sc.nextLine();
