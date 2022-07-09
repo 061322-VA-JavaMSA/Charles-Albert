@@ -5,8 +5,14 @@ import java.util.List;
 import com.revature.models.User;
 
 public interface UserDAO {
+	
 	User insertUser(User u);
+	
 	User getUserById(int id);
+	
 	User getUserByUsername(String username);
+	
+	User getUserByEmail(String username);
+	
 	List<User> getUsers();
 }

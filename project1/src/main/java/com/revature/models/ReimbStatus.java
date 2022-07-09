@@ -9,17 +9,16 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
 @Entity
-@Table (name ="Users_roles")
-public class  Role {
-	
+@Table(name="Reimbursement_status")
+public class ReimbStatus {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
-
-	private String role;
 	
-	public Role() {
+	private String status;
+
+	public ReimbStatus() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
@@ -32,17 +31,17 @@ public class  Role {
 		this.id = id;
 	}
 
-	public String getRole() {
-		return role;
+	public String getStatus() {
+		return status;
 	}
 
-	public void setRole(String role) {
-		this.role = role;
+	public void setStatus(String status) {
+		this.status = status;
 	}
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(id, role);
+		return Objects.hash(id, status);
 	}
 
 	@Override
@@ -53,16 +52,22 @@ public class  Role {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Role other = (Role) obj;
-		return id == other.id && Objects.equals(role, other.role);
+		ReimbStatus other = (ReimbStatus) obj;
+		return id == other.id && Objects.equals(status, other.status);
 	}
 
 	@Override
 	public String toString() {
-		return "Role [id=" + id + ", role=" + role + "]";
+		return "ReimbStatus [id=" + id + ", status=" + status + "]";
 	}
 	
 	
 	
-	
+
+
+
+
+
+
+
 }

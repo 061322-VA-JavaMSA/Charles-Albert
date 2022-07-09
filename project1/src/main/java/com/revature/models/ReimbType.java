@@ -8,18 +8,17 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
-@Entity
-@Table (name ="Users_roles")
-public class  Role {
-	
+@Entity 
+@Table(name = "Reimbursement_type")
+public class ReimbType {
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int id;
-
-	private String role;
 	
-	public Role() {
+	private String type;
+
+	public ReimbType() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
@@ -32,17 +31,17 @@ public class  Role {
 		this.id = id;
 	}
 
-	public String getRole() {
-		return role;
+	public String getType() {
+		return type;
 	}
 
-	public void setRole(String role) {
-		this.role = role;
+	public void setType(String type) {
+		this.type = type;
 	}
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(id, role);
+		return Objects.hash(id, type);
 	}
 
 	@Override
@@ -53,16 +52,18 @@ public class  Role {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Role other = (Role) obj;
-		return id == other.id && Objects.equals(role, other.role);
+		ReimbType other = (ReimbType) obj;
+		return id == other.id && Objects.equals(type, other.type);
 	}
 
 	@Override
 	public String toString() {
-		return "Role [id=" + id + ", role=" + role + "]";
+		return "ReimbType [id=" + id + ", type=" + type + "]";
 	}
 	
 	
 	
 	
+	
+
 }

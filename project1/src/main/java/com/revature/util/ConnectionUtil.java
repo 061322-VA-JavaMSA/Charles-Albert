@@ -10,7 +10,7 @@ public class ConnectionUtil {
 	
 	private static Connection c;
 
-	public static Connection getConnectionFromFile() throws SQLException, IOException {
+	public static Connection getConnectionFromFile() throws SQLException, IOException{
 		Properties prop = new Properties();
 		ClassLoader loader = Thread.currentThread().getContextClassLoader();
 		prop.load(loader.getResourceAsStream("connection.properties"));

@@ -51,7 +51,7 @@ public class AuthServlet extends HttpServlet {
 
 		} catch (UserNotFoundException | LoginException e) {
 			res.sendError(400, "Login unsuccessful.");
-			e.printStackTrace();
+			
 		} 
 	}
 	
@@ -63,9 +63,9 @@ public class AuthServlet extends HttpServlet {
 		session.invalidate();
 	}
 	
-//	@Override
-//	protected void doOptions(HttpServletRequest req, HttpServletResponse res) throws IOException, ServletException {
-//		CorsFix.addCorsHeader(req.getRequestURI(),res);
-//		super.doOptions(req, res);
-//	}
+	@Override
+	protected void doOptions(HttpServletRequest req, HttpServletResponse res) throws IOException, ServletException {
+		CorsFix.addCorsHeader(req.getRequestURI(),res);
+		super.doOptions(req, res);
+	}
 }

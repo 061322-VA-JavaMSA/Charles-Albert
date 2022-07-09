@@ -4,11 +4,11 @@ import java.util.Objects;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
 @Entity
@@ -17,16 +17,55 @@ public class User {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
-	@Column(name="username", nullable = false, unique = true)
+	
+	
+	@Column(nullable = false, unique = true)
 	private String username;
+	
 	@Column( nullable = false)
 	private String password;
-	@Enumerated(EnumType.STRING)
+	
+	@Column(name = "user_first_name", nullable = false) 
+	private String firstName;
+	
+	@Column(name = "user_last_name", nullable = false) 
+	private String lastName;
+	
+	@Column(unique=true, nullable=false)
+	private String email;
+	
+	@ManyToOne
+	@JoinColumn(name = "user_role_id")
 	private Role role;
 	
 	public User() {
 		super();
+		id = -1;
 		// TODO Auto-generated constructor stub
+	}
+
+	public String getFirstName() {
+		return firstName;
+	}
+
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
+
+	public String getLastName() {
+		return lastName;
+	}
+
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
 	}
 
 	public int getId() {
@@ -63,7 +102,7 @@ public class User {
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(id, password, role, username);
+		return Objects.hash(email, firstName, id, lastName, password, role, username);
 	}
 
 	@Override
@@ -75,13 +114,15 @@ public class User {
 		if (getClass() != obj.getClass())
 			return false;
 		User other = (User) obj;
-		return id == other.id && Objects.equals(password, other.password) && role == other.role
-				&& Objects.equals(username, other.username);
+		return Objects.equals(email, other.email) && Objects.equals(firstName, other.firstName) && id == other.id
+				&& Objects.equals(lastName, other.lastName) && Objects.equals(password, other.password)
+				&& role == other.role && Objects.equals(username, other.username);
 	}
 
 	@Override
 	public String toString() {
-		return "User [id=" + id + ", username=" + username + ", password=" + password + ", role=" + role + "]";
+		return "User [id=" + id + ", username=" + username + ", password=" + password + ", firstName=" + firstName
+				+ ", lastName=" + lastName + ", email=" + email + ", role=" + role + "]";
 	}
 	
 }
