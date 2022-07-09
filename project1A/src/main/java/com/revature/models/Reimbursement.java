@@ -18,7 +18,7 @@ import jakarta.persistence.TemporalType;
 
 @Entity
 @Table(name = "Reimbursement")
-public class Reimbursment {
+public class Reimbursement {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -58,7 +58,7 @@ public class Reimbursment {
 
 	
 	
-	public Reimbursment() {
+	public Reimbursement() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
@@ -188,7 +188,7 @@ public class Reimbursment {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Reimbursment other = (Reimbursment) obj;
+		Reimbursement other = (Reimbursement) obj;
 		return Double.doubleToLongBits(amount) == Double.doubleToLongBits(other.amount)
 				&& Objects.equals(author, other.author) && Objects.equals(description, other.description)
 				&& id == other.id && Objects.equals(reimbStatus, other.reimbStatus)

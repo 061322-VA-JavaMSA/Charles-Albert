@@ -22,7 +22,10 @@
 		
 		
 		<mapping class="com.revature.models.User"></mapping>
-		<mapping class="com.revature.models.Task"></mapping>
+		<mapping class="com.revature.models.Role"></mapping>
+		<mapping class="com.revature.models.Reimbursement"/>
+		<mapping class="com.revature.models.ReimbStatus"/>
+		<mapping class="com.revature.models.ReimbType"/>
     </session-factory>
 
 </hibernate-configuration>
