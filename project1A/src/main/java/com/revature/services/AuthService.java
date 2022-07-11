@@ -17,9 +17,9 @@ public class AuthService {
 	public User login(String username, String password) throws UserNotFoundException, LoginException {
 		
 		// principal refers to "currently logged in user"
-		User principal;
 		
-		principal = ud.getUserByUsername(username);
+		
+		User principal = ud.getUserByUsername(username);
 		
 		
 		if(principal == null) {
