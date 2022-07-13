@@ -1,4 +1,4 @@
-let apiUrl = 'http://localhost:8080/task-manager';
+let apiUrl = 'http://localhost:8080/project1A';
 
 // When logged in, retrieves the JSON string representing the logged in user from Session Storage
 let principalString = sessionStorage.getItem('principal');
