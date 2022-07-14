@@ -12,11 +12,11 @@ if (principalString) {
     // converts the JSON string back to a JS object and assigns it to principal
     principal = JSON.parse(principalString);
 
-    if (principal.role === 'ADMIN') {
-        createNavElement('Users', nav_left, './users.html', null);
+    if (principal.role === 'manager') {
+        createNavElement('Employees', nav_left, './employee.html', null);
     }
 
-    createNavElement('Tasks', nav_left, './tasks.html', null);
+    createNavElement('Reimbursements', nav_right, './reimbursements.html', null);
 
     createNavElement('Logout', nav_right, null, logout);
 } else {
@@ -26,7 +26,7 @@ if (principalString) {
 async function logout() {
 
     // Sends a DELETE request to API to invalidate session
-    let response = await fetch(`${apiUrl}/auth`, {
+    let response = await fetch(`${apiUrl}/AuthServlet`, {
         method: 'DELETE',
         credentials: 'include'
     });

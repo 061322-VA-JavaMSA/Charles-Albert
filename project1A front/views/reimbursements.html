@@ -78,10 +78,6 @@
                                     <input type="number" class="form-control" id="newAmount" placeholder="$0.00" required>
                                 </div>
                                 <div class="form-group">
-                                    <label for="newReceipt">Include an image of your receipt (Optional)</label>
-                                    <input type="file" class="form-control" id="newReceipt" accept="image/*,.pdf" name="newReceipt">
-                                </div>
-                                <div class="form-group">
                                     <textarea class="form-control" id="newDescription" placeholder="Describe the request"></textarea>
                                 </div>
                             </form>
@@ -144,30 +140,14 @@
                                     <p id="viewDescription" style="text-align:left"></p>
                                 </div>
                             </div>
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <p>
-                                        <button class="btn btn-primary" type="button" data-bs-toggle="collapse"
-                                            data-bs-target="#collapseExample" aria-expanded="false"
-                                            aria-controls="collapseExample">
-                                            Receipt
-                                        </button>
-                                    </p>
-                                    <div class="collapse" id="collapseExample">
-                                        <div class="card card-body">
-                                            <img id="viewReceipt"
-                                                src="https://i.pinimg.com/736x/87/b1/a4/87b1a4a5078350c42c7f1a422464498d.jpg">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                            
+                        
                         <div class="modal-footer">
+                            <button id = "approved" type="button" class="btn btn-secondary" data-bs-dismiss="modal" style="background-color: blue"
+                                 value="aproved">Aprove</button>
+                            <button id="denied" type="button" class="btn btn-primary" data-bs-dismiss style="background-color:red"
+                                 value = "denied">Deny</button>
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                            <button id="approved" type="button" class="btn btn-primary"
-                                style="background-color:lightgreen">Approve</button>
-                            <button id="denied" type="button" class="btn btn-primary"
-                                style="background-color:red">Deny</button>
                         </div>
                     </div>
                 </div>
@@ -178,7 +158,7 @@
         </button>
     
         <script src="../scripts/main.js"></script>
-        <script src="../scripts/reimbs.js"></script>
+        <script src="../scripts/reimburse.js"></script>
 
 </body>
 

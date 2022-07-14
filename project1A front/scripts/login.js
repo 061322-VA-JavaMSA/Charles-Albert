@@ -7,6 +7,8 @@ if(principal){
 let loginButton = document.getElementById('submitButton');
 loginButton.addEventListener('click', login);
 
+//let apiUrl = "http://localhost:8080/project1A";
+
 async function login(){
 
     let username = document.getElementById('username').value;
@@ -14,7 +16,7 @@ async function login(){
 
     let response = await fetch(`${apiUrl}/AuthServlet`,{
         method: 'POST',
-        //credentials: 'include',
+        credentials: 'include',
         headers: {
             'Content-Type': 'application/x-www-form-urlencoded'
         },
@@ -28,9 +30,9 @@ async function login(){
         let data = await response.json();
 
         console.log(data);
-         //sessionStorage.setItem('principal', JSON.stringify(data));
+         sessionStorage.setItem('principal', JSON.stringify(data));
         
-       // window.location.href="./index.html";
+        window.location.href="./index.html";
     } else{
         console.log('Unable to login.')
     }
