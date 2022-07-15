@@ -5,6 +5,7 @@ import java.util.Objects;
 
 import com.revature.models.ReimbStatus;
 import com.revature.models.ReimbType;
+import com.revature.models.Reimbursement;
 import com.revature.models.User;
 
 
@@ -21,6 +22,25 @@ public class ReimbursementDTO {
 	private User resolver;
 	private ReimbStatus reimbStatus;
 	private ReimbType reimbType;
+	
+	
+	public ReimbursementDTO(Reimbursement r) {
+		if (r!= null) {
+			id = r.getId();
+			amount= r.getAmount();
+			submitted = r.getSubmitted();
+			resolved = r.getResolved();
+			description= r.getDescription();
+			author = r.getAuthor();
+			resolver = r.getResolver();
+		}
+	}
+	
+	
+	
+	
+	
+	
 	
 	public ReimbursementDTO() {
 		super();
