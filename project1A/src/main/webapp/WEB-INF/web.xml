@@ -42,7 +42,7 @@
 		<servlet-class>com.revature.servlet.AuthServlet</servlet-class>
 	</servlet>
 	<servlet-mapping>
-		<servlet-name></servlet-name>
+		<servlet-name>AuthServlet</servlet-name>
 		<url-pattern>/AuthServlet</url-pattern>
 	</servlet-mapping>
 </web-app>

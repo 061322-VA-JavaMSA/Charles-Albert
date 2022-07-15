@@ -1,4 +1,4 @@
-// Checks if a user is already logged in, if yes redirect to homepage
+//Checks if a user is already logged in, if yes redirect to homepage
 if(principal){
     window.location.href="./index.html";
 }
@@ -7,7 +7,7 @@ if(principal){
 let loginButton = document.getElementById('submitButton');
 loginButton.addEventListener('click', login);
 
-//let apiUrl = "http://localhost:8080/project1A";
+
 
 async function login(){
 
@@ -29,7 +29,7 @@ async function login(){
     if(response.status == 200){
         let data = await response.json();
 
-        console.log(data);
+        
          sessionStorage.setItem('principal', JSON.stringify(data));
         
         window.location.href="./index.html";
