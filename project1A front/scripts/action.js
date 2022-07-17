@@ -1,4 +1,4 @@
-let approveBtn = document.getElementById('approved');
+/*let approveBtn = document.getElementById('approved');
 approveBtn.addEventListener('click', approve);
 let deniedBtn = document.getElementById('denied');
 rejectBtn.addEventListener('click', deny);
@@ -14,3 +14,4 @@ function deny(){
     console.log('denied');
 
 }
+*/

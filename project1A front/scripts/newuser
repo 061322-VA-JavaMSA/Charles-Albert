@@ -1,15 +1,16 @@
-let createUserbtn = document.getElementById('submituser');
-createUserbtn?.addEventListener('click',createUser);
-let apiUrl = 'http://localhost:8080/project1A'; 
+let userbtn = document.getElementById('submituser');
+userbtn?.addEventListener('click', makeUser);
 
 
-async function createUser(){
+
+
+async function makeUser(){
 
     let userid = document.getElementById('id')?.value;
     let username = document.getElementById('username')?.value;
     let passed=document.getElementById('password')?.value;
-    let firstname = document.getElementById('fname')?.value;
-    let lastname = document.getElementById('lname')?.value;
+    let firstname = document.getElementById('firstName')?.value;
+    let lastname = document.getElementById('lastName')?.value;
     let email = document.getElementById('email')?.value;
     let role = document.getElementById('role')?.value;
 
@@ -32,7 +33,7 @@ async function createUser(){
 
     if (reponse.status== 201){
         window.alert('User Created Successfully');
-        document.getElementById.innerHTML.value="";
+        document.getElementById.('userid').innerHTML.value="";
         
     }else (
         window.alert('Unable to Create New User')

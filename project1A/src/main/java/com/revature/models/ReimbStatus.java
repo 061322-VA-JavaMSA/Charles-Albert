@@ -18,7 +18,7 @@ public class ReimbStatus {
 	private int id;
 	
 	
-	@Column(name="reimb_status")
+	@Column(name="status")
 	private String status;
 
 	public ReimbStatus() {
@@ -89,4 +89,5 @@ public class ReimbStatus {
 
 
 
+	}
 }

@@ -5,7 +5,7 @@ let apiUrl="http://localhost:8080/project1A";
 
 async function request(){
 
-    let rid=document.getElementById('rid').value;
+    
     let rt= document.getElementById('rtype').value;
     let ra=document.getElementById('ramount').value;
     let rd = document.getElementById('rdate').value;
@@ -21,7 +21,7 @@ async function request(){
             },
         
         body: JSON.stringify({
-            "reimb_Id":`${rid}`,
+           
             "descripion": `${rdes}`,
             "amount": `${ra}`,
             "sub_Date": `${rd}`,

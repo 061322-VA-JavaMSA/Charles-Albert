@@ -26,9 +26,9 @@ async function login(){
         let data = await response.json();
         sessionStorage.setItem('principal', JSON.stringify(data));
         console.log(data);
-        
+        window.location.href="./users.html";
         if(data.role["role"] == "employee"){
-            window.location.href = "../views/employees.html";
+            window.location.href = "../views/users.html";
             console.log(data);
         } 
         
@@ -40,10 +40,12 @@ async function login(){
         }
     
         
-      }   
-        
-        else{
+    
+   
+    }   
+     else{
              console.log("Unable to log in.");
+             document.getElementById('error').innerHTML="Incorrecnt Credentials!";
          }
 
    
