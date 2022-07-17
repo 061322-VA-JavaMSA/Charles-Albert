@@ -1,6 +1,7 @@
 package com.revature.servlet;
 
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
@@ -13,6 +14,7 @@ import javax.servlet.http.HttpSession;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.revature.dtos.UserDTO;
+import com.revature.exceptions.UserNotCreatedException;
 import com.revature.exceptions.UserNotFoundException;
 import com.revature.models.User;
 import com.revature.services.UserService;
@@ -89,8 +91,19 @@ public class UserServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
+		InputStream body = request.getInputStream();
+		User u = new User();
+		
+		u = om.readValue(body,User.class);
+		try {
+			us.createUser(u);
+			response.setStatus(201);
+			PrintWriter p = response.getWriter();
+			p.print(u);
+		} catch (UserNotCreatedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 }
