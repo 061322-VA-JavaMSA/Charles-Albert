@@ -28,7 +28,7 @@ if (principalString) {
 
 }
 else{
-    createNavElement('Login', nav-right, './login.html', null);
+    //createNavElement('Login', nav-right, './login.html', null);
 }
 
 async function logout() {

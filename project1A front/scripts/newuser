@@ -1,23 +1,24 @@
-let createbtn = document.getElementById('submituser')
-createbtn.addEventListener('click', createUser);
+let createUserbtn = document.getElementById('submituser');
+createUserbtn?.addEventListener('click',createUser);
+let apiUrl = 'http://localhost:8080/project1A'; 
 
 
 async function createUser(){
 
-    let userid= document.getElementById('id').value;
-    let username= document.getElementById('username').value;
-    let passed=document.getElementById('password').value;
-    let firstname = document.getElementById('firtsName').value;
-    let lastname = document.getElementById('lastName').value;
-    let role = document.getElementById('role').value;
+    let userid = document.getElementById('id')?.value;
+    let username = document.getElementById('username')?.value;
+    let passed=document.getElementById('password')?.value;
+    let firstname = document.getElementById('fname')?.value;
+    let lastname = document.getElementById('lname')?.value;
+    let email = document.getElementById('email')?.value;
+    let role = document.getElementById('role')?.value;
 
-    let response = await fetch(`${apiUrl}/employee`,{
-        method: 'Post',
+    let reponse = await fetch(`{apiurl}/UserServlet`,{
+        method: 'POST',
         credentials: 'include',
-        headers:{
+        headers: {
             'Content-Type': 'application/x-www-form-urlencoded'
         },
-
         body: JSON.stringify({
             "id": `${userid}`,
             "username": `${username}`,
@@ -29,15 +30,13 @@ async function createUser(){
         })
     });
 
-    if (response.status== 201){
+    if (reponse.status== 201){
         window.alert('User Created Successfully');
-        document.getElementById('userid').innerHTML.value="";
+        document.getElementById.innerHTML.value="";
         
-
-    } 
-    else{
+    }else (
         window.alert('Unable to Create New User')
-    }
+    )
 
 
 }

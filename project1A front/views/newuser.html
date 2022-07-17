@@ -27,13 +27,7 @@
                 </div>
                 <hr>
          
-                <div class="d-flex justify-content-center">
-                    <label>User ID</label>
-                </div>
-                <div class="d-flex justify-content-center">
-                    <input class="inputstyle" type="number" name="id" id="userid">
-                </div>
-             
+                
                 <div class="d-flex justify-content-center">
                     <label>Username:</label>
                 </div>
@@ -41,7 +35,7 @@
                     <input class="inputstyle" type="text" name="username" id="username">
                 </div>
                 <div class="d-flex justify-content-center">
-                    <label>Default Password:</label>
+                    <label>Password:</label>
                 </div>
                 <div class="d-flex justify-content-center">
                     <input class="inputstyle" type="text" name="pass" id="password">
@@ -56,6 +50,12 @@
                     <label>Last Name:</label>
                 </div>
                 <div class="d-flex justify-content-center">
+                    <input class="inputstyle" type="text" name="fname" id="fname">
+                </div>
+                <div class="d-flex justify-content-center">
+                    <label>email:</label>
+                </div>
+                <div class="d-flex justify-content-center">
                     <input class="inputstyle" type="text" name="lname" id="lname">
                 </div>
                 <div class="d-flex justify-content-center">
@@ -66,7 +66,7 @@
                 </div>
                 <br>
                 <div style="text-align:center ;">
-                <button type="button" value="submit" id="submituser">Create</button></div>
+                <button type="button" value="submit" id="createUserbtn">Create</button></div>
                 <br>
                 <br>
                 <h2 id="error" style="text-align: center; color: red;"></h2>
@@ -87,7 +87,7 @@
         crossorigin="anonymous"></script>
 
         <script src="/scripts/newuser.js"></script>
- 
+        <script src="/scripts/main.js"></script>
 </body>
 
 </html>
