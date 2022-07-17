@@ -1,27 +1,34 @@
 // Because main.js is the first script added to each HTML page, the logic declared here is shared/reused by all pages
-let apiUrl = 'http://localhost:8080/project1A';
+//let apiUrl = 'http://localhost:8081/task-manager';
+
 
 // When logged in, retrieves the JSON string representing the logged in user from Session Storage
 let principalString = sessionStorage.getItem('principal');
 let principal = null;
 
-let nav_right = document.getElementById("nav-right");
-let nav_left = document.getElementById("nav-left");
+
 
 // If principalString is a truthy value(non null), therefore exists
 if (principalString) {
     // converts the JSON string back to a JS object and assigns it to principal
     principal = JSON.parse(principalString);
 
-    if (principal.role === 'manager') {
-        createNavElement('Employees', nav_left, './employees.html', null);
+    if (principal.role == 'manager'){
+       // createNavElement('Users', nav_left, './employees.html', null);
+        createNavElement('Task', nav_left, './manager.html', null);
+       // createNavElement('Create Users', nav_left, './newuser.html', null);
+       // createNavElement('Logout', nav_right, null, logout);
+    } else {
+
+       // createNavElement('New Request', nav_left, './request.html', null);
+       // createNavElement('My Requests', nav_left, './myrequests.html', null);
+       // createNavElement('Update My Info', nav_left, './updateuser.html', null);
+       // createNavElement('Logout', nav_right, null, logout);
     }
 
-    createNavElement('Reimbursements', nav_left, './reimbursements.html', null);
-
-    createNavElement('Logout', nav_right, null, logout);
-} else {
-    createNavElement('Login', nav_right, './login.html', null);
+}
+else{
+    createNavElement('Login', nav-right, './login.html', null);
 }
 
 async function logout() {
@@ -37,38 +44,10 @@ async function logout() {
         sessionStorage.clear();
         // clears principal variable representing logged in user
         principal = null;
-        window.location.href="./index.html";
+        window.location.href="./manager.html";
     } else {
         console.log('Unable to logout.')
     }
 }
 
-// Reusable function to create nav element in navbar
-function createNavElement(innerHTML, parentElement, link, callback) {
-    let li = document.createElement('li');
-    // bootstrap class for styling
-    li.setAttribute('class', 'nav-item');
 
-    let a = document.createElement('a');
-    // bootstrap class for styling
-    a.setAttribute('class', 'nav-link');
-
-    // if a link to a different page has been assigned, assign that link
-    if (link) {
-        a.setAttribute('href', link);
-    } else {
-        a.setAttribute('href', '#');
-    }
-
-    // if a callback function was passed in, assigns that function to the new element
-    if (callback) {
-        a.addEventListener('click', callback);
-    }
-
-    // Assigns nav-bar item name
-    a.innerHTML = innerHTML;
-
-    li.appendChild(a);
-
-    parentElement.appendChild(li);
-}

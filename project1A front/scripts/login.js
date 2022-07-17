@@ -1,13 +1,8 @@
-//Checks if a user is already logged in, if yes redirect to homepage
-if(principal){
-    window.location.href="./index.html";
-}
 
-// Setting up event listener for login button
 let loginButton = document.getElementById('submitButton');
 loginButton.addEventListener('click', login);
 
-
+let apiUrl = 'http://localhost:8080/project1A'; 
 
 async function login(){
 
@@ -16,7 +11,7 @@ async function login(){
 
     let response = await fetch(`${apiUrl}/AuthServlet`,{
         method: 'POST',
-        credentials: 'include',
+        //credentials: 'include',
         headers: {
             'Content-Type': 'application/x-www-form-urlencoded'
         },
@@ -25,15 +20,32 @@ async function login(){
             'password': `${password}`
         })
     });
-
+    
+    
     if(response.status == 200){
         let data = await response.json();
+        sessionStorage.setItem('principal', JSON.stringify(data));
+        console.log(data);
+        
+        if(data.role["role"] == "employee"){
+            window.location.href = "../views/employees.html";
+            console.log(data);
+        } 
+        
+        else{
+            
+           window.location.href = "../views/manager.html";
+           console.log(data);
+           
+        }
+    
+        
+      }   
+        
+        else{
+             console.log("Unable to log in.");
+         }
 
-        
-         sessionStorage.setItem('principal', JSON.stringify(data));
-        
-        window.location.href="./index.html";
-    } else{
-        console.log('Unable to login.')
-    }
+   
 }
+

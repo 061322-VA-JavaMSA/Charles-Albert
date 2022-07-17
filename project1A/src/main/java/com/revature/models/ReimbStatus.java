@@ -2,6 +2,7 @@ package com.revature.models;
 
 import java.util.Objects;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -16,6 +17,8 @@ public class ReimbStatus {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	
+	
+	@Column(name="reimb_status")
 	private String status;
 
 	public ReimbStatus() {
@@ -62,6 +65,22 @@ public class ReimbStatus {
 	}
 	
 	
+	public ReimbStatus (int i) {
+		id = i;
+	switch (i) {
+	
+	case 200:
+		status = "Pending";
+		break;
+	case 201 :
+		status= "Approved";
+		break;
+	case 202 :
+		status = "Denied";
+		break;
+		default :
+			status = " ";
+	}
 	
 
 
