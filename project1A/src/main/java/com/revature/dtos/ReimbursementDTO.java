@@ -33,6 +33,10 @@ public class ReimbursementDTO {
 			description= r.getDescription();
 			author = r.getAuthor();
 			resolver = r.getResolver();
+//			reimbType = r.getReimbType();
+			
+			
+			
 		}
 	}
 	

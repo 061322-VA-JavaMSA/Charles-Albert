@@ -4,6 +4,7 @@ import com.revature.daos.ReimbStatusHibernate;
 import com.revature.daos.ReimburseStatusDAO;
 import com.revature.exceptions.ItemNotFoundException;
 import com.revature.models.ReimbStatus;
+import com.revature.models.Reimbursement;
 
 public class ReimbStatusService {
 	
@@ -30,5 +31,6 @@ private ReimburseStatusDAO rsd = new ReimbStatusHibernate();
 		return rs;
 		
 	}
+
 
 }

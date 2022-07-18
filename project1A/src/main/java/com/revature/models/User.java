@@ -43,6 +43,10 @@ public class User {
 		id = -1;
 		// TODO Auto-generated constructor stub
 	}
+	public User(int id) {
+		
+		
+	}
 
 	public String getFirstName() {
 		return firstName;

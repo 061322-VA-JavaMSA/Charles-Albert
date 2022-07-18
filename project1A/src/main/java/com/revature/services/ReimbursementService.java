@@ -17,4 +17,11 @@ private ReimbursementDAO rd = new ReimbursementHibernate();
 	public List<Reimbursement> getReimbursementsByAuthorId(int id) {
 		return rd.getReimbursementsByAuthorId(id);
 	}
+
+	public Reimbursement createreimbursement ( Reimbursement reques) {
+		Reimbursement n = rd.insertReimbursement(reques);
+		return reques;
+		
+	}
+
 }

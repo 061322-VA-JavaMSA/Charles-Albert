@@ -51,9 +51,9 @@ public class Reimbursement {
 	@ManyToOne
 	@JoinColumn(name="status_id")
 	private ReimbStatus reimbStatus;
-	
+//	
 	@ManyToOne
-	@JoinColumn(name="type_id")
+	@JoinColumn(name ="type_id")
 	private ReimbType reimbType;
 
 	

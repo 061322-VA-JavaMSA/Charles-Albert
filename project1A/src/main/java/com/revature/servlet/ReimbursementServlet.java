@@ -1,6 +1,7 @@
 package com.revature.servlet;
 
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.PrintWriter;
 import java.util.List;
 
@@ -44,14 +45,15 @@ public class ReimbursementServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		CorsFix.addCorsHeader(req.getRequestURI(), resp);
 		resp.addHeader("Content-Type", "application/json");
-		HttpSession session = req.getSession();
+		//HttpSession session = req.getSession();
 		String pathInfo = req.getPathInfo();
+		InputStream reqBody = req.getInputStream();
+		Reimbursement newReimb = om.readValue(reqBody, Reimbursement.class);
 		
-		if (pathInfo == null && session.getAttribute("userRole").equals("MANAGER")) {
-			
-		} else {
-			resp.sendError(401, "Unauthorized.");
-		}
+		rs.createreimbursement(newReimb);
+		resp.setStatus(201);
+		
+		
 	}
 
 	@Override

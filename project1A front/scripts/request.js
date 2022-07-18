@@ -6,12 +6,12 @@ let apiUrl="http://localhost:8080/project1A";
 async function request(){
 
     
-    let rt= document.getElementById('rtype').value;
+    let rt=document.getElementById("rtype").value;
     let ra=document.getElementById('ramount').value;
-    let rd = document.getElementById('rdate').value;
-    let rdes = document.getElementById('rd').value;
-
-        console.log('request');
+   // let rd=document.getElementById('rsubmit').value;
+    let rdes = document.getElementById('rdescription').value;
+    //let userId = document.getElementById('rUserId').value;
+        
 
         let response = await fetch(`${apiUrl}/ReimbursementServlet`,{
                 method: 'POST',
@@ -22,10 +22,11 @@ async function request(){
         
         body: JSON.stringify({
            
-            "descripion": `${rdes}`,
+          // "author":{"authorId":`${userId}`},
+           "description": `${rdes}`,
             "amount": `${ra}`,
-            "sub_Date": `${rd}`,
-            "receipt": `${rt}`
+          //  "submitted": `${rd}`,
+            "type":`${rt}`,
         })
 
     });
